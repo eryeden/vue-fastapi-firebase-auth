@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "vue-fastapi"
+name = "vue-fastapi-firebase-auth"
 version = "0.1.0"
 description = ""
 authors = ["eryeden <ery.eden@gmail.com>"]
 readme = "README.md"
-packages = [{include = "vue_fastapi"}]
+packages = [{include = "vue_fastapi_firebase_auth"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"

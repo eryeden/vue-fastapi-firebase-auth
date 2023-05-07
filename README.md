@@ -1,5 +1,20 @@
-# vue-fastapi
+# vue-fastapi-firebase-auth
 
+This repo is intended to be a template which consists of `Vue.js` and `FastAPI` , and `Firebase auth`.
+The following features are included in this repo:
+- User authentication on frontend using Vue.js
+- Sign in screen provided by the firebase auth UI
+- User verification on backend using FastAPI
+
+## API
+This repo has the following API endpoints, some of which require authentication:
+
+| End point | Description              | Authentication |
+|-----------|--------------------------|---------------|
+| /hello    | Welcome message          | not required  |
+| /user     | User specific infomation | required      |
+
+The api will be hosted under `http://127.0.0.1:8000/` by default.
 
 ## Demo
 
@@ -13,10 +28,6 @@ To run the dev server:
 cd vue-fastapi
 npm dev run
 ```
-
-It appears there are two options for running development servers:
-- Using a docker(with docker-compose)
-- Running development servers separately in a local environment
 
 ## Configurations
 You need to make sure the configurations are properly set for both FastAPI and Vue.js.
