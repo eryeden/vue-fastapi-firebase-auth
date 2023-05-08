@@ -40,5 +40,10 @@ async def root():
 
 
 @app.get("/hello")
-async def root():
+async def hello():
     return {"message": "Hello World"}
+
+
+@app.get("/user")
+async def user():
+    return {"message": "User"}

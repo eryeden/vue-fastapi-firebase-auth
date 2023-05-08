@@ -1,10 +1,13 @@
-<script>
+<script setup>
+import Signout from "./Signout.vue"
 </script>
 
 <template>
     <h3>The top</h3>
     <br/>
     <a href="/api">API</a>
+    <br />
+    <Signout />
 </template>
 
 <style scoped>

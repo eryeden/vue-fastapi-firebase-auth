@@ -33,6 +33,21 @@ npm dev run
 You need to make sure the configurations are properly set for both FastAPI and Vue.js.
 Depending on your setup, port numbers may change, os make sure to adjust them accordingly.
 
+### Environment variables
+The following variables shall be configured properly and stored in `vue-fastapi/.env.local`.
+Please refer to the firebase console and fill them.
+This file is not contained in this repo, so make sure to it will be generated.
+
+```.env
+VITE_apiKey=****,
+VITE_authDomain=****,
+VITE_projectId=***,
+VITE_storageBucket=****,
+VITE_messagingSenderId=****,
+VITE_appId=****,
+VITE_measurementId=****"
+```
+
 ### FastAPI
 - CORS: Specify the allowed origins, including correct port number.
 ```python
@@ -75,13 +90,13 @@ poetry shell
 
 - FastAPI set up
 ```bash
-poetry add fastapi[all]
+poetry add fastapi[all] firebase_admin
 ```
 
 - Vue3+Vite set up
 ```bash
 npm init vue@latest
 cd vue-fastapi/
-npm install axios vue-axios
+npm install axios vue-axios firebaseui firebase-tools
 npm install
 ```

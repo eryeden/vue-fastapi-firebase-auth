@@ -9,6 +9,7 @@ packages = [{include = "vue_fastapi_firebase_auth"}]
 [tool.poetry.dependencies]
 python = "^3.11"
 fastapi = {extras = ["all"], version = "^0.95.1"}
+firebase-admin = "^6.1.0"
 
 
 [build-system]
