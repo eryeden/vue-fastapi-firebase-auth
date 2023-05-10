@@ -5,6 +5,8 @@ import Signout from "./Signout.vue"
 <template>
     <h3>The top</h3>
     <br/>
+    <a href="/login">Login/Sign in</a>
+    <br/>
     <a href="/api">API</a>
     <br />
     <Signout />

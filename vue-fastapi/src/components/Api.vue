@@ -12,6 +12,8 @@ export default{
     data() {
         return {
             text: null,
+            api_response: "",
+            token: ""
         }
     },
     mounted(){
@@ -24,16 +26,35 @@ export default{
     methods: {
         sendUser() {
             const auth = getAuth();
-            const token = auth.currentUser?.getIdToken(true).then(idToken => {return idToken;})
-            axios.get("user", {
-                headers:{
-                    "X-AUTH-TOKEN" : "Bearer " + token
-                }
-            }).then(
-                (response) => (this.text = response.data)
-            ).catch(
-                (e) => console.log(e)
-            );
+            this.token = auth.currentUser?.getIdToken(true).then(idToken => {return idToken;})
+
+            auth.currentUser.getIdToken(/* forceRefresh */ true).then(function(idToken) {
+                // Send token to your backend via HTTPS
+                // ...
+                // this.token = idToken
+                console.log(idToken)
+
+                axios.get("user", {
+                    headers:{
+                        "Authorization" : "Bearer " + idToken
+                    }
+                }).then(
+                    (response) => {
+                        console.log(response.data)
+                        this.api_response = response.data
+                    }
+                ).catch(
+                    (e) => console.log(e)
+                );
+
+            }).catch(function(error) {
+                // Handle error
+                console.log(error)
+            });
+
+
+
+
         }
     },
 }
@@ -43,6 +64,11 @@ export default{
 
 <template>
     <h3>API result</h3>
+    <br/>
     <h4>{{text}}</h4>
+    <br/>
     <button @click="sendUser">USER</button>
+    <br/>
+    <h4>{{api_response}}</h4>
+
 </template>
