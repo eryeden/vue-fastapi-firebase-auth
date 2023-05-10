@@ -100,3 +100,21 @@ cd vue-fastapi/
 npm install axios vue-axios firebaseui firebase-tools
 npm install
 ```
+
+
+#### Firebase error
+
+以下エラーがFastAPIからFirebaseAuthでTokenを検証する際に発生していた。
+```
+{"detail":"Invalid authentication credentials. 'HTTPResponse' object has no attribute 'strict'"}e
+```
+
+下記ページを見るとurllib3のバージョンによって生じる問題らしい。以下バージョンに固定することで検証ができるようになった。
+- https://github.com/ionrock/cachecontrol/issues/292
+- https://github.com/ionrock/cachecontrol/issues/292#issuecomment-1539171576
+
+Poetryでは以下コマンドでバージョン固定ができる:
+```bash
+poetry add urllib3==1.26.15
+```
+
