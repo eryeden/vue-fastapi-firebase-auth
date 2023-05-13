@@ -25,6 +25,10 @@ export default{
     },
     methods: {
         sendUser() {
+            // task:
+            // 1. getIdToken内で更新した内容を表示できればOK
+            // 2. tokenとforce refreshせず、キャッシュする
+
             const auth = getAuth();
             this.token = auth.currentUser?.getIdToken(true).then(idToken => {return idToken;})
 
@@ -51,10 +55,6 @@ export default{
                 // Handle error
                 console.log(error)
             });
-
-
-
-
         }
     },
 }
